@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    background-color: #f7f7f7;
+}
+header{
+    background-color: #3C5473;
+    height: 80px;
+}
+nav ul{
+    display: flex;
+    height: 80px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+li, li a{
+    display: flex;
+    height: 80px;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    font-size: 20px;
+    height: 80px;
+    width: 100%;
+}
+li a:hover{
+    background-color: #2A476B;
+}
+.mesa{
+    display: flex;
+    min-height: 400px;
+    max-height: 100%;
+    width: 100%;
+}
+.dados form div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+#dado{
+    width: 275px; height: 275px;
+    background-color: white;
+    border: 3px #D95436 solid;
+    border-radius: 42px;
+}
