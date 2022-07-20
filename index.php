@@ -197,17 +197,50 @@
                 </form>";
 
                 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-                $cdPlayer = array();
-                $nome = array();
-                $inic = array();
+                //$cdPlayer = array();
+                //$nome = array();
+                //$inic = array();
+
                 if(!empty($dados['enviar'])){
                     foreach($dados['nome'] as $codPlayer => $nomePlayer){
-                        array_push($cdPlayer, $codPlayer);
-                        array_push($nome, $nomePlayer);
-                        array_push($inic, $dados['inic'][$codPlayer]);
-                        echo "Codigo: " .$cdPlayer[$codPlayer]. "<br>Nome: " .$nome[$codPlayer]. "<br> Iniciativa: " .$inic[$codPlayer]. "<br>";
+                        $players[] = array('nome' => $nomePlayer, 'iniciativa' => $dados['inic'][$codPlayer]);
                     }
                 }
+
+                foreach ($players as $cdPlayer => $row) {
+                    $nome[$cdPlayer]  = $row['nome'];
+                    $inic[$cdPlayer] = $row['inic'];
+                }
+
+                $nome  = array_column($players, 'nome');
+                $inic = array_column($players, 'inic');
+                var_dump($players); echo"<br><br>";
+
+                array_multisort($nome, SORT_ASC, $inic, SORT_DESC, $players);
+                var_dump($players); echo"<br><br>";
+
+                $data[] = array('volume' => 67, 'edicao' => 2);
+                $data[] = array('volume' => 86, 'edicao' => 1);
+                $data[] = array('volume' => 85, 'edicao' => 6);
+                $data[] = array('volume' => 98, 'edicao' => 2);
+                $data[] = array('volume' => 86, 'edicao' => 6);
+                $data[] = array('volume' => 67, 'edicao' => 7);
+
+                var_dump($data);echo"<br><br>";
+                // Obtain a list of columns
+                foreach ($data as $key => $row) {
+                    $volume[$key]  = $row['volume'];
+                    $edicao[$key] = $row['edicao'];
+                }
+
+                // Você pode usar array_column() em vez do código acima
+                $volume  = array_column($data, 'volume');
+                $edicao = array_column($data, 'edicao');
+
+                // Ordena os dados por volume decrescente, edição crescente.
+                // Adiciona $data como último parâmetro, para ordenar por uma chave comum.
+                array_multisort($volume, SORT_DESC, $edicao, SORT_ASC, $data);
+                var_dump($data);
             echo "</article>
         </section>
     </body>";
