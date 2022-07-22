@@ -33,19 +33,112 @@ li a:hover{
 }
 .mesa{
     display: flex;
-    min-height: 400px;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 450px;
     max-height: 100%;
     width: 100%;
+    font-size: 20px;
 }
-.dados form div{
+.dados{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 450px;
+}
+.dados form{
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+}
+#girar-dado{
+    width: 261px;
+    height: 40px;
+    margin: 20px 0px 0px 0px;
+    background-color: #62719C;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    font-weight: bold;
+}
+#girar-dado:hover{
+    background-color: #3C5473;
 }
 #dado{
-    width: 275px; height: 275px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 255px; height: 255px;
     background-color: white;
     border: 3px #D95436 solid;
-    border-radius: 42px;
+    border-radius: 20px;
+    font-size: 80px;
+    font-weight: bold;
+    color: #D95436;
+}
+#select-dado{
+    font-size: 17px;
+    width: 200px;
+}
+.add-players{
+    text-align: center;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 100%;
+    justify-content: center;
+    padding: 20px;
+    height: 450px;
+}
+.form-group{
+    display: flex;
+    justify-content: center;
+}
+.nome:hover, .iniciativa:hover, .adicionar:hover, .remover:hover{
+    background-color: #f3f3f3;
+}
+.nome, .iniciativa, .adicionar, .remover{
+    height: 30px;
+    font-size: 18px;
+    margin: 4px;padding: 5px;
+    border: 1px #D95436 solid;
+}
+.nome{
+    width: 200px;
+}
+.iniciativa{
+    width: 60px;
+}
+.adicionar, .remover{
+    color: #D95436;
+    font-weight: bold;
+    background-color: white;
+    width: 30px;
+}
+.button-enviar{
+    width: 100px;
+    height: 40px;
+    font-size: 17px;
+    background-color: #62719C;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.button-enviar:hover{
+    background-color: #3C5473;
+}
+.ordem-turnos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30vw;
+    height: 450px;
+    padding: 20px;
+    text-align: center;
 }
