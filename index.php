@@ -26,6 +26,7 @@
         </header>
         <section id='mesa' class='container mesa'>
             <article class='dados'>
+                <div><h2>Girar Dados</h2></div>
                 <form action='' method='post'>
                     <div><select name='select-dado' id='select-dado'>
                         <option value='dado6'>Dado de 6 lados</option>
@@ -77,6 +78,7 @@
                     <div id='formulario-players'>
                         <div class='form-group'>
                             <div><input type='text' placeholder='Nome' name='nome[]' class='nome' /></div>
+                            <div><input type='number' placeholder='HP' name='vida[]' class='vida' /></div>
                             <div><input type='number' placeholder='Inic.' name='inic[]' class='iniciativa' /></div>
                             <div><input type='button' value='+' name='add' class='adicionar' onclick='adicionarCampo()'/></div>
                         </div>
@@ -92,7 +94,7 @@
                 //colocando em outra array, organizando por pessoa, cada um com nome e iniciativa respectivos
                 if(!empty($dados['enviar'])){
                     foreach($dados['nome'] as $codPlayer => $nomePlayer){
-                        $players[] = array('nome' => $nomePlayer, 'inic' => $dados['inic'][$codPlayer]);
+                        $players[] = array('nome' => $nomePlayer, 'inic' => $dados['inic'][$codPlayer], 'vida' => $dados['vida'][$codPlayer]);
                     }
                 }
 
@@ -100,11 +102,13 @@
                 foreach ($players as $key => $row) {
                     $nome[$key]  = $row['nome'];
                     $inic[$key] = $row['inic'];
+                    $vida[$key] = $row['vida'];
                 }
 
                 //organiza em colunas
                 $nome  = array_column($players, 'nome');
                 $inic = array_column($players, 'inic');
+                $vida = array_column($players, 'vida');
 
                 //organiza as colunas por quem tem a iniciativa maior para quem tem a menor iniciativa
                 array_multisort($inic, SORT_DESC, $players);
@@ -115,7 +119,7 @@
                     
                     foreach ($players as $row)
                         {
-                            echo "<div>".ucwords($row['nome'])."/".$row['inic']."</div>";
+                            echo "<div>".ucwords($row['nome'])."/".$row['vida']."/".$row['inic']."</div>";
                         }
                 echo"
                 </div>
